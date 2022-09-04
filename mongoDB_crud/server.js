@@ -22,19 +22,19 @@ const app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.send(`
   <h2>Welcome to Students Database!!</h2>
 
-  <h3>Click here to get access to the <b> <ahref="/student/list">Database</a> </b></h3>`);
+  <h3>Click here to get access to the <b> <a href="/student/list">Database</a> </b></h3>`);
 
 });
 
-app.set("views", path.join(__dirname, "/views/"));
+app.set('views', path.join(__dirname, '/views/'));
 
 app.engine(
   "hbs",
-  exphbs({
+  exphbs.engine({
     handlebars: allowInsecurePrototypeAccess(handleBars),
     extname: "hbs",
     defaultLayout: "mainLayout",
